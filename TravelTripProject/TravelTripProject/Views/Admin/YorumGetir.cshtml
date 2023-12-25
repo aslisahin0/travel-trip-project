@@ -1,0 +1,36 @@
+﻿@model TravelTripProject.Models.Sınıflar.Yorumlar
+@{
+    ViewBag.Title = "YorumGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/web/js/jquery.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<br />
+<h2>Yorum Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("YorumGuncelle", "Admin", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.ID)
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
+    @Html.LabelFor(x => x.KullaniciAdi)
+    @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Mail)
+    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Yorum)
+    @Html.TextAreaFor(x => x.Yorum, 15, 1, new { @class = "form-control" })
+    <br />
+
+    <br />
+    <button class="btn btn-success" id="btnyorum">Yorum Güncelle</button>
+    <script>
+        $('#btnyorum').click(function () {
+            alert("Yorum güncellendi.")
+        });
+    </script>
+}
+
+

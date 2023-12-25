@@ -1,0 +1,106 @@
+﻿@model TravelTripProject.Models.Sınıflar.Iletisim
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+
+<script src="~/web/js/jquery.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<html>
+<body>
+
+    <div class="contact">
+        <div class="wrap">
+            <div class="contact-top">
+                <h3>İletişim Bilgileri</h3>
+                <p><h4> Öneri, şikayet ve görüşleriniz için aşağıki bilgilerden bana mesaj gönderebilirsiniz.</h4></p>
+            </div>
+            <div class="form">
+                <h3>
+                    @using (Html.BeginForm("Index", "Contact", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.LabelFor(x => x.AdSoyad)
+                        @Html.TextBoxFor(x => x.AdSoyad,new { @class = "form-control" })
+                        <br />
+                        @Html.LabelFor(x => x.Mail)
+                        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+                        <br />
+                        @Html.LabelFor(x => x.Konu)
+                        @Html.TextBoxFor(x => x.Konu, new { @class = "form-control" })
+                        <br />
+                        @Html.LabelFor(x => x.Mesaj)
+                        <br />
+                        <br />
+                        @Html.TextAreaFor(x => x.Mesaj, 8, 40, new { @class = "form-control" })
+                        <br />
+                        <br />
+                        <button class="read" id="btn1">Gönder</button>
+                    }
+                </h3>
+            </div>
+            <br />
+            <script>
+                $('#btn1').click(function () {
+                    alert("Mesajınız gönderildi, en kısa sürede dönüş yapacağız.")
+                });
+            </script>
+
+            @*<div class="clear"></div>*@
+            @*<div class="contact-bottom">
+                <div class="contact-left">*@
+            <div class="form1">
+                <img src="~/web/images/contact_us_279387361-1024x325.jpeg" />
+                <br />
+                <br />
+                <br />
+                <h3><b style="color: #B53471;">Adres</b></h3>
+                <br />
+                <p>
+                    <h4>DİMAS İŞ MERKEZİ 6/D Yenimahalle Ankara / Türkiye</h4>
+                <p><h4>Telefon: 0312 348 12 58</h4></p>
+                <p><h4>Email: <a href="mailto:aslisahin464@gmail.com">aslisahin464@gmail.com</a></h4></p>
+
+            </div>
+
+            @*</div>*@
+
+            <div class="clear"></div>
+            @*</div>*@
+            <div class="clear"></div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+@*----------------------------------------------------------------------------------------------------------------------*@
+
+@*<div class="form1">
+        <div>
+        <textarea name="Mesaj" value="Mesaj: " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mesaj: ';}">Mesaj: </textarea>
+        </div>
+    </div>*@
+
+@*----------------------------------------------------------------------------------------------------------------------*@
+
+@*@using (Html.BeginForm("Index", "Contact", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+        @Html.LabelFor(x => x.AdSoyad)
+        @Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Mail)
+        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Konu)
+        @Html.TextBoxFor(x => x.Konu, new { @class = "form-control" })
+        <input type="file" name="BlogImage" />
+        <br />
+        @Html.LabelFor(x => x.Mesaj)
+        @Html.TextAreaFor(x => x.Mesaj, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-primary">Gönder</button>
+
+    }*@
+

@@ -1,0 +1,38 @@
+﻿@model TravelTripProject.Models.Sınıflar.Blog
+@{
+    ViewBag.Title = "BlogGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/web/js/jquery.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<br />
+<h2>Blog Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("BlogGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.LabelFor(x => x.ID)
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.LabelFor(x => x.Baslik)
+    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Tarih)
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
+    @*@Html.LabelFor(x => x.BlogImage)*@
+    <p>Blog resmi:</p>
+    <input type="file" name="BlogImage" />
+    @*@Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control" })*@
+    <br /> 
+    <br /> 
+    @Html.LabelFor(x => x.Aciklama)
+    @Html.TextAreaFor(x => x.Aciklama, 15, 1, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success" id="btnguncelle">Blog Güncelle</button>
+    <script>
+        $('#btnguncelle').click(function () {
+            alert("Blog güncellendi.")
+        });
+    </script>
+}
